@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Counter.scss'
+import { FormattedMessage } from 'react-intl';
 
 export const Counter = (props) => (
   <div>
@@ -11,11 +12,19 @@ export const Counter = (props) => (
       </span>
     </h2>
     <button className='btn btn-default' onClick={props.increment}>
-      Increment
+      <FormattedMessage
+        id='INCREMENT_BTN'
+        defaultMessage='Increment'
+        description='Button text to increment the value of the counter'
+      />
     </button>
     {' '}
     <button className='btn btn-default' onClick={props.doubleAsync}>
-      Double (Async)
+      <FormattedMessage
+        id='DOUBLE_BTN'
+        defaultMessage='Double value (Async)'
+        description='Button text to double the value of the counter'
+      />
     </button>
   </div>
 )
