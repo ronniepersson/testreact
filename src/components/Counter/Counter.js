@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Counter.scss'
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedNumber } from 'react-intl'
 
 export const Counter = (props) => (
   <div>
@@ -8,7 +8,7 @@ export const Counter = (props) => (
       Counter:
       {' '}
       <span className={classes['counter--green']}>
-        {props.counter}
+        <FormattedNumber value={props.counter} />
       </span>
     </h2>
     <button className='btn btn-default' onClick={props.increment}>
