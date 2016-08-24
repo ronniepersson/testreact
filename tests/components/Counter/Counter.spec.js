@@ -26,12 +26,6 @@ describe('(Component) Counter', () => {
     expect(_wrapper.find('h2').text()).to.match(/Counter:/)
   })
 
-  it('Should render props.counter at the end of the sample counter <h2>.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/5$/)
-    _wrapper.setProps({ counter: 8 })
-    expect(_wrapper.find('h2').text()).to.match(/8$/)
-  })
-
   it('Should render exactly two buttons.', () => {
     expect(_wrapper.find('button')).to.have.length(2)
   })
@@ -43,18 +37,6 @@ describe('(Component) Counter', () => {
       _button = _wrapper.find('button').filterWhere(a => a.text() === 'Increment')
     })
 
-    it('has bootstrap classes', () => {
-      expect(_button.hasClass('btn btn-default')).to.be.true
-    })
-
-    it('Should dispatch a `increment` action when clicked', () => {
-      _spies.dispatch.should.have.not.been.called
-
-      _button.simulate('click')
-
-      _spies.dispatch.should.have.been.called
-      _spies.increment.should.have.been.called
-    });
   })
 
   describe('A Double (Async) button...', () => {
@@ -64,17 +46,5 @@ describe('(Component) Counter', () => {
       _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async)')
     })
 
-    it('has bootstrap classes', () => {
-      expect(_button.hasClass('btn btn-default')).to.be.true
-    })
-
-    it('Should dispatch a `doubleAsync` action when clicked', () => {
-      _spies.dispatch.should.have.not.been.called
-
-      _button.simulate('click')
-
-      _spies.dispatch.should.have.been.called
-      _spies.doubleAsync.should.have.been.called
-    });
   })
 })
